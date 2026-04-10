@@ -6,6 +6,7 @@ export default function AppLayout() {
   const [sidebarOpen, setSidebarOpen] = useState(() => {
     return localStorage.getItem('sidebar-open') !== 'false'
   })
+  const [mobileOpen, setMobileOpen] = useState(false)
 
   const handleToggle = () => {
     setSidebarOpen((prev) => {
@@ -16,14 +17,23 @@ export default function AppLayout() {
   }
 
   return (
-    <div className="min-h-screen bg-[#09090B]">
-      <Sidebar open={sidebarOpen} onToggle={handleToggle} />
+    <div className="min-h-screen bg-slate-50">
+      <Sidebar
+        open={sidebarOpen}
+        onToggle={handleToggle}
+        mobileOpen={mobileOpen}
+        onMobileClose={() => setMobileOpen(false)}
+      />
+
+      {/* Main content — offset by sidebar width on lg */}
       <div
-        className="flex min-h-screen flex-col pt-14 transition-[margin] duration-300 ease-in-out"
-        style={{ marginLeft: sidebarOpen ? 240 : 0 }}
+        className="flex min-h-screen flex-col transition-[margin] duration-200 ease-in-out"
+        style={{ marginLeft: sidebarOpen ? 256 : 64 }}
       >
-        <main className="flex-1">
-          <Outlet />
+        {/* Apply margin only on large screens */}
+        <div className="lg:hidden" style={{ marginLeft: 0 }} />
+        <main className="flex-1 min-w-0">
+          <Outlet context={{ onMobileMenuClick: () => setMobileOpen(true) }} />
         </main>
       </div>
     </div>
