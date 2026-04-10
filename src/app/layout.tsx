@@ -14,8 +14,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TrustedRiders",
-  description: "NEMT Ride Tracking Platform",
+  title: {
+    template: "%s | TrustedRiders",
+    default: "TrustedRiders — NEMT Ride Tracking",
+  },
+  description: "Non-Emergency Medical Transportation ride tracking platform.",
 };
 
 export default function RootLayout({

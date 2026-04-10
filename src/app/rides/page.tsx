@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Active Rides",
+  description: "Monitor and manage all active NEMT rides in real time.",
+};
+
 export default function RidesPage() {
   return (
     <div className="p-8">

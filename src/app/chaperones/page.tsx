@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Chaperones",
+  description: "Manage chaperone profiles, certifications, and assignments.",
+};
+
 export default function ChaperoneManagementPage() {
   return (
     <div className="p-8">

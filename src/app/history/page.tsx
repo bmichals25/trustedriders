@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Ride History",
+  description: "Browse and search completed NEMT ride records.",
+};
+
 export default function HistoryPage() {
   return (
     <div className="p-8">

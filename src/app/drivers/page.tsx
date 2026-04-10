@@ -1,3 +1,10 @@
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Drivers",
+  description: "Manage driver profiles, availability, and assignments.",
+};
+
 export default function DriversPage() {
   return (
     <div className="p-8">
