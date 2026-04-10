@@ -10,8 +10,8 @@ const corsHeaders = {
 // Create Document — creates a real Notion page and links it to a venture
 // ---------------------------------------------------------------------------
 
-const NOTION_TOKEN = 'REDACTED_NOTION_TOKEN'
-const NOTION_ROOT_PAGE = '2e398e40-b332-8081-8453-d5e133106de9'
+const NOTION_TOKEN = Deno.env.get('NOTION_TOKEN')!
+const NOTION_ROOT_PAGE = Deno.env.get('NOTION_ROOT_PAGE') ?? '2e398e40-b332-8081-8453-d5e133106de9'
 const NOTION_VERSION = '2022-06-28'
 const USER_ID = '00000000-0000-0000-0000-000000000001'
 
